@@ -1,0 +1,8 @@
+{
+  "name": "joggin",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "24296e32"
+}
