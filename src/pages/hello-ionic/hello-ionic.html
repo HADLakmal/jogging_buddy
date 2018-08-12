@@ -13,7 +13,15 @@
   <p>
     <button ion-button color="primary" (click)="onLoadTracker()">Toggle Menu</button>
   </p>
-
+  <form (ngSubmit)="onaddname(f.value)" #f="ngForm">
+    <ion-item>
+      <ion-label>
+        Title
+      </ion-label>
+      <ion-input type="text" name="title" required></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!f.valid"></button>
+  </form>
   <h3>Current Latitude: {{locationTracker.lat}}</h3>
   <h3>Current Longitude: {{locationTracker.lng}}</h3>
   <button ion-button full primary (click)="start()">Start Tracking</button>

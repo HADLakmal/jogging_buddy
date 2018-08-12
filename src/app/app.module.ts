@@ -14,6 +14,20 @@ import { BackgroundGeolocation } from '@ionic-native/background-geolocation';
 import { Geolocation } from '@ionic-native/geolocation';
 import {LocationPage} from "../pages/location/location";
 import { LocationtrackerProvider } from '../providers/locationtracker/locationtracker';
+import { ServerProvider } from '../providers/server/server';
+
+import {AngularFireModule} from 'angularfire2'
+import {AngularFireDatabaseModule} from 'angularfire2/database'
+
+var config = {
+  apiKey: "AIzaSyAp5-xMWUpLRTVZU8jiweMkBPCRuTzZLko",
+  authDomain: "jogging-46c08.firebaseapp.com",
+  databaseURL: "https://jogging-46c08.firebaseio.com",
+  projectId: "jogging-46c08",
+  storageBucket: "jogging-46c08.appspot.com",
+  messagingSenderId: "189425901702"
+};
+
 
 @NgModule({
   declarations: [
@@ -26,6 +40,8 @@ import { LocationtrackerProvider } from '../providers/locationtracker/locationtr
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -41,7 +57,8 @@ import { LocationtrackerProvider } from '../providers/locationtracker/locationtr
     BackgroundGeolocation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LocationtrackerProvider
+    LocationtrackerProvider,
+    ServerProvider
   ]
 })
 export class AppModule {}
